@@ -1,0 +1,6 @@
+$id = $_GET['id'];
+
+$stmt = $pdo->prepare("SELECT first_name, last_name FROM users WHERE user_id = ?");
+$stmt->execute([$id]);
+
+$results = $stmt->fetchAll();

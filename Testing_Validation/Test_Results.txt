@@ -1,0 +1,21 @@
+Testing and Validation Results
+
+1. SQL Injection Retest
+Original payload: 1' OR '1'='1
+Expected secure result: The application should not return all user records.
+Validation: Prepared statements prevent the input from being treated as SQL code.
+
+2. XSS Retest
+Original payload: <script>alert('XSS')</script>
+Expected secure result: The script should display as text or be blocked, not execute.
+Validation: htmlspecialchars() encodes special characters.
+
+3. CSRF Retest
+Original test: Submit password change without a valid CSRF token.
+Expected secure result: The request should fail with an invalid token message.
+Validation: The application checks the submitted token against the session token.
+
+4. Database Hardening Validation
+Command: SHOW GRANTS FOR 'webuser'@'localhost';
+Expected result: webuser should only have SELECT, INSERT, and UPDATE permissions on dvwa.*.
+Validation: Least privilege was applied successfully.
