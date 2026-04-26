@@ -1,9 +1,0 @@
-*.zip
-*.env
-config.inc.php
-desktop.ini
-Thumbs.db
-.DS_Store
-xampp/
-dvwa/
-DVWA/
